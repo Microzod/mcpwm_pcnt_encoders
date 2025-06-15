@@ -25,7 +25,8 @@ bool Legacy_PulseCounter::begin()
 {
     if (_nextUnit >= PCNT_UNIT_MAX) { return false; }// no more hardware units left
 
-    _unit = _nextUnit++;
+    _unit = allocPcntUnit();
+    if (_unit == PCNT_UNIT_MAX) return false;
 
     pcnt_config_t config = {};
     config.pulse_gpio_num = _pulsePin;

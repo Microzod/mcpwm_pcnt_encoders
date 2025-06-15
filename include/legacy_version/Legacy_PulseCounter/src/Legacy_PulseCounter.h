@@ -1,13 +1,13 @@
-#ifndef PULSECOUNTER_H
-#define PULSECOUNTER_H
+#ifndef LEGACY_PULSECOUNTER_H
+#define LEGACYPULSECOUNTER_H
 
 #include <Arduino.h>
 #include "driver/pcnt.h"
 
-class PulseCounter
+class Legacy_PulseCounter
 {
 public:
-    PulseCounter(int pulsePin, int16_t lowLimit = -INT16_MAX, int16_t highLimit = INT16_MAX);
+    Legacy_PulseCounter(int pulsePin, int16_t lowLimit = -INT16_MAX, int16_t highLimit = INT16_MAX);
     ~PulseCounter();
 
     bool begin();
@@ -26,4 +26,4 @@ private:
     static pcnt_unit_t  _nextUnit;
 };
 
-#endif  // PULSECOUNTER_H
+#endif  // LEGACY_PULSECOUNTER_H

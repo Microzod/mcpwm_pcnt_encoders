@@ -31,7 +31,8 @@ bool Legacy_RotaryEncoderPCNT::begin()
         return false;
     }
 
-    _unit = _nextUnit++;
+    _unit = allocPcntUnit();
+    if (_unit == PCNT_UNIT_MAX) return false;
 
     // ── channel 0: A rising/falling vs. B level ──
     pcnt_config_t cfgA = {};

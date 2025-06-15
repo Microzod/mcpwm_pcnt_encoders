@@ -1,0 +1,21 @@
+{
+  "name": "Legacy_RotaryEncoderPCNT",       // your library’s canonical name
+  "version": "1.0.0",                // semver
+  "author": "David <you@example.com>",
+  "license": "MIT",                  // or whatever your license is
+  "sentence": "Legacy replacement for RotaryEncoderPCNT",
+  "paragraph": "This library provides a simple C++ interface for the ESP32's pulse counter (PCNT) peripheral, "
+  "repository": {
+    "type": "git",
+    "url":  "https://github.com/Microzod/Legacy_RotaryEncoderPCNT.git"
+  },
+  "frameworks": [ "arduino" ],        // which frameworks it supports
+  "platforms": [ "espressif32" ],     // which platforms/boards
+  "keywords": [ "esp32", "pcnt", "encoder", "pulse" ],
+  "dependencies": {
+    "PCNTAllocator": "*"             // any version of PCNTAllocator
+  },
+  "export": {
+    "include": [ "src" ],            // folder(s) to include
+  }
+}

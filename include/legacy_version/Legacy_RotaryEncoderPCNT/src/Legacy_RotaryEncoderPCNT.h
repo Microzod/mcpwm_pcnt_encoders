@@ -1,16 +1,16 @@
-#ifndef ROTARYENCODERPCNT_H
-#define ROTARYENCODERPCNT_H
+#ifndef LEGACY_ROTARYENCODERPCNT_H
+#define LEGACY_ROTARYENCODERPCNT_H
 
 #include <Arduino.h>
 #include "driver/pcnt.h"
 
-class RotaryEncoderPCNT
+class Legacy_RotaryEncoderPCNT
 {
 public:
-    RotaryEncoderPCNT(int pinA, int pinB,
+    Legacy_RotaryEncoderPCNT(int pinA, int pinB,
                       int16_t lowLimit = -INT16_MAX,
                       int16_t highLimit = INT16_MAX);
-    ~RotaryEncoderPCNT();
+    ~Legacy_RotaryEncoderPCNT();
 
     bool      begin();
     void      deinit();

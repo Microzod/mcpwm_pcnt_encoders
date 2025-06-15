@@ -1,8 +1,8 @@
-#include "PulseCounter.h"
+#include "Legacy_PulseCounter.h"
 
-pcnt_unit_t PulseCounter::_nextUnit = PCNT_UNIT_0;
+pcnt_unit_t Legacy_PulseCounter::_nextUnit = PCNT_UNIT_0;
 
-PulseCounter::PulseCounter
+Legacy_PulseCounter::Legacy_PulseCounter
 (
     int       pulsePin,
     int16_t   lowLimit,
@@ -16,18 +16,14 @@ PulseCounter::PulseCounter
     _unit      = PCNT_UNIT_MAX;
 }
 
-PulseCounter::~PulseCounter()
+Legacy_PulseCounter::~Legacy_PulseCounter()
 {
     end();
 }
 
-bool PulseCounter::begin()
+bool Legacy_PulseCounter::begin()
 {
-    if (_nextUnit >= PCNT_UNIT_MAX)
-    {
-        // no more hardware units left
-        return false;
-    }
+    if (_nextUnit >= PCNT_UNIT_MAX) { return false; }// no more hardware units left
 
     _unit = _nextUnit++;
 
@@ -43,30 +39,17 @@ bool PulseCounter::begin()
     config.counter_h_lim  = _highLimit;
     config.counter_l_lim  = _lowLimit;
 
-    if (pcnt_unit_config(_unit, &config) != ESP_OK)
-    {
-        return false;
-    }
+    if (pcnt_unit_config(_unit, &config) != ESP_OK){ return false; }
 
-    if (pcnt_counter_clear(_unit) != ESP_OK ||
-        pcnt_counter_resume(_unit) != ESP_OK)
-    {
-        return false;
-    }
+    if (pcnt_counter_clear(_unit) != ESP_OK || pcnt_counter_resume(_unit) != ESP_OK) { return false; }
 
     _started = true;
     return true;
 }
 
-int16_t PulseCounter::getCount
-(
-    bool resetAfterRead
-)
+int16_t Legacy_PulseCounter::getCount( bool resetAfterRead )
 {
-    if (!_started)
-    {
-        return 0;
-    }
+    if (!_started) { return 0; }
 
     int16_t cnt = 0;
     pcnt_get_counter_value(_unit, &cnt);

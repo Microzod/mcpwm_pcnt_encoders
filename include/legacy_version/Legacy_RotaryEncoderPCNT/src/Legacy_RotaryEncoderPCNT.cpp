@@ -1,8 +1,8 @@
-#include "RotaryEncoderPCNT.h"
+#include "Legacy_RotaryEncoderPCNT.h"
 
-pcnt_unit_t RotaryEncoderPCNT::_nextUnit = PCNT_UNIT_0;
+pcnt_unit_t Legacy_RotaryEncoderPCNT::_nextUnit = PCNT_UNIT_0;
 
-RotaryEncoderPCNT::RotaryEncoderPCNT
+Legacy_RotaryEncoderPCNT::Legacy_RotaryEncoderPCNT
 (
     int       pinA,
     int       pinB,
@@ -19,12 +19,12 @@ RotaryEncoderPCNT::RotaryEncoderPCNT
     _offset    = 0;
 }
 
-RotaryEncoderPCNT::~RotaryEncoderPCNT()
+Legacy_RotaryEncoderPCNT::~Legacy_RotaryEncoderPCNT()
 {
     deinit();
 }
 
-bool RotaryEncoderPCNT::begin()
+bool Legacy_RotaryEncoderPCNT::begin()
 {
     if (_nextUnit >= PCNT_UNIT_MAX)
     {
@@ -79,7 +79,7 @@ bool RotaryEncoderPCNT::begin()
     return true;
 }
 
-void RotaryEncoderPCNT::deinit()
+void Legacy_RotaryEncoderPCNT::deinit()
 {
     if (_started)
     {
@@ -89,7 +89,7 @@ void RotaryEncoderPCNT::deinit()
     }
 }
 
-int32_t RotaryEncoderPCNT::getPosition()
+int32_t Legacy_RotaryEncoderPCNT::getPosition()
 {
     if (!_started)
     {
@@ -101,7 +101,7 @@ int32_t RotaryEncoderPCNT::getPosition()
     return (int32_t)cnt + _offset;
 }
 
-void RotaryEncoderPCNT::setPosition
+void Legacy_RotaryEncoderPCNT::setPosition
 (
     int32_t pos
 )
@@ -110,7 +110,7 @@ void RotaryEncoderPCNT::setPosition
     zero();
 }
 
-void RotaryEncoderPCNT::zero()
+void Legacy_RotaryEncoderPCNT::zero()
 {
     if (_started)
     {

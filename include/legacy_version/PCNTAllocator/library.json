@@ -1,0 +1,35 @@
+ "name": "PCNTAllocator",
+    "version": "1.0.0",
+    "description": "Helper library to allocate ESP32 PCNT units for multiple pulse‐counter instances without conflict.",
+    "keywords": [
+        "esp32",
+        "pcnt",
+        "pulse",
+        "counter",
+        "allocator"
+    ],
+    "authors": [
+        {
+            "name": "David Zod",
+            "email": "david.alenhag@outlook.com",
+            "url": "https://github.com/Microzod"
+        }
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Microzod/PCNTAllocator.git"
+    },
+    "license": "MIT",
+    "frameworks": [
+        "arduino",
+        "espidf"
+    ],
+    "platforms": [
+        "espressif32"
+    ],
+    "build": {
+        "srcFilter": [
+            "+<src/*>"
+        ]
+    }
+}

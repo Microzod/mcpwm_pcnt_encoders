@@ -3,6 +3,7 @@
 
 #include <Arduino.h>
 #include "driver/pcnt.h"
+#include "PCNTAllocator.h"
 
 class Legacy_PulseCounter
 {

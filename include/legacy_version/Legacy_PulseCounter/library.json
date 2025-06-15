@@ -1,0 +1,35 @@
+{
+    "name": "Legacy_PulseCounter",
+    "version": "1.0.0",
+    "description": "Legacy replacement for PulseCounter.",
+    "keywords": [
+        "esp32",
+        "pcnt",
+        "pulse",
+        "counter"
+    ],
+    "authors": [
+        {
+            "name": "Microzod",
+            "email": "you@example.com",
+            "url": "https://github.com/Microzod"
+        }
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Microzod/Legacy_PulseCounter.git"
+    },
+    "license": "MIT",
+    "frameworks": [
+        "arduino",
+        "espidf"
+    ],
+    "platforms": [
+        "espressif32"
+    ],
+    "build": {
+        "srcFilter": [
+            "+<src/*>"
+        ]
+    }
+}
